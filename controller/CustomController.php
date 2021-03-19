@@ -302,45 +302,6 @@ function contentUserEmail($idContenido, $email) {
     return false;
 }
 
-function adminSidebar($option, $paramUrl) {
-    $optionActive = [
-        'class-active' => 'active',
-        'class-show' => 'show'
-    ];
-    $optionInactive = [
-        'class-active' => '',
-        'class-show' => ''
-    ];
-
-    if ($paramUrl == $option) {
-        return $optionActive;
-    }
-
-    $options = [
-        'signals' => ['collapse01'],
-        'payment-search' => ['collapse02'],
-        'links' => ['collapse02'],
-        'coupons' => ['collapse03'],
-        'coupon-category' => ['collapse03'],
-        'products' => ['collapse04'],
-        'product-report' => ['collapse04'],
-        'content' => ['collapse05'],
-        'content-report' => ['collapse05'],
-        'courses' => ['collapse06'],
-        'dashboard-progress' => ['collapse06'],
-    ];
-
-    foreach ($options as $key => $value) {
-        if ($paramUrl == $key) {
-            foreach ($value as $opt) {
-                if ($option == $opt) {
-                    return $optionActive;
-                }
-            }
-        }
-    }
-    return $optionInactive;
-}
 
 function statusSidebar($option, $class, $paramUrl) {
     echo adminSidebar($option, $paramUrl, $paramUrl)[$class];
@@ -354,20 +315,6 @@ function getUrlImageProfile($code) {
     return $urlImageProfile;
 }
 
-function getUrlImageProduct($code, $min = false) {
-    $urlImageProfile = 'default.jpg';
-    if ($min) {
-        if (is_file(__DIR__ . '/../content/product/img/800x600/' . $code . '.jpg')) {
-            $urlImageProfile = $code . '.jpg';
-        }
-    } else {
-        if (is_file(__DIR__ . '/../content/product/img/1600x1200/' . $code . '.jpg')) {
-            $urlImageProfile = $code . '.jpg';
-        }
-    }
-
-    return $urlImageProfile;
-}
 
 function dateSqlToHtml($date) {
     if ($date == '') {

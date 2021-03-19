@@ -2,7 +2,7 @@
 
 class Database {
 
-    private static $dbName = 'na';
+    private static $dbName = 'pruebaempresa';
     private static $dbHost = 'localhost';
     private static $dbUsername = 'root';
     private static $dbUserPassword = '';
@@ -13,11 +13,6 @@ class Database {
     }
 
     public static function connect() {
-
-        self::$dbName = 'pruebaempresa';
-        self::$dbHost = 'localhost';
-        self::$dbUsername = 'root';
-        self::$dbUserPassword = '';
 
         // One connection through whole application
         if (null == self::$cont) {
