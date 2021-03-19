@@ -1,0 +1,144 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Inventarios</title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/fontawesome.css" rel="stylesheet">
+        <link href="assets/css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+            <h5 class="my-0 mr-md-auto font-weight-normal">Inventarios</h5>
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="p-2 text-dark action" function="createModal"><i class="fas fa-plus"></i> Crear Producto</a>
+            </nav>
+            <a class="btn btn-success action" function="saleModal" style="color: #fff"><i class="fas fa-shopping-cart mr-1"></i>Vender Producto</a>
+        </div>
+        <div class="container">
+            <div style="display: none" class="resultado" role="alert"></div>               
+            <div class="div-impresoras">
+                <h3 class="mt-4 mb-4">Lista de productos</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">referencia</th>
+                                <th scope="col">precio</th>
+                                <th scope="col">peso</th>
+                                <th scope="col">categoria</th>
+                                <th scope="col">stock</th>
+                                <th scope="col">fecha creacion</th>
+                                <th scope="col">ult.venta</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="listProducts">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>    
+        </div>
+
+
+        <div class="modal" id="deleteModal" tabindex="-1" role="dialog"
+             aria-labelledby="ModalDelete" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <input type="number" id="idProductDelete" style="display: none">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar</h5>
+                    </div>
+                    <div class="modal-body msj-delete-modal">
+                        ¿Esta seguro que desea eliminar este producto?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary action" function="confirmDelete">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="editModal" tabindex="-1" role="dialog"
+             aria-labelledby="editModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <input type="number" id="idProductEdit" style="display: none">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Producto</h5>                        
+                    </div>
+                    <div class="modal-body">
+                        <form>    
+                            <div class="form-group">
+                                <label>* Nombre</label>
+                                <input type="text" class="form-control" name="nombre" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>* Referencia</label>
+                                <input type="text" class="form-control" name="referencia" placeholder="">
+                            </div>                          
+                            <div class="form-group">
+                                <label>* Precio</label>
+                                <input type="number" class="form-control" name="precio" placeholder="">
+                            </div>                        
+                            <div class="form-group">
+                                <label>* Peso</label>
+                                <input type="number" class="form-control" name="peso" placeholder="">
+                            </div> 
+                            <div class="form-group">
+                                <label>* Categoria</label>
+                                <input type="text" class="form-control" name="categoria" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>* Stock</label>
+                                <input type="number" class="form-control" name="stock" placeholder="">
+                            </div>                            
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary action" function="confirmEdit">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="saleModal" tabindex="-1" role="dialog"
+             aria-labelledby="saleDelete" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">                    
+                    <div class="modal-body">
+                        <form>    
+                            <div class="form-group">
+                                <label>* Producto</label>
+                                <select class="form-control mb-3 productSelect"></select>
+                            </div>                            
+                            <div class="form-group">
+                                <label>* Cantidad</label>
+                                <input type="number" class="form-control" name="cantidad" placeholder="">
+                            </div>                            
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary action" function="confirmSale">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/forms.js"></script> 
+        <script src="assets/js/productos.js"></script> 
+    </body>
+</html>
