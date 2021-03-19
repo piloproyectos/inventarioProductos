@@ -170,3 +170,9 @@ function confirmSale() {
         listaProductosSelect();
     });
 }
+
+function closeModals(){
+    $('#saleModal').modal('hide');
+    $('#editModal').modal('hide');
+    $('#deleteModal').modal('hide');
+}
